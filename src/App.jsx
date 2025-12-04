@@ -43,6 +43,16 @@ const CalendarioAdviento = () => {
   const handleDayClick = (day) => {
     if (openedDays[day]) return;
     
+    // Obtener la fecha actual
+    const today = new Date();
+    const currentDay = today.getDate();
+    const currentMonth = today.getMonth() + 1; // Los meses van de 0-11
+    
+    // Solo permitir abrir días hasta el día actual en diciembre
+    if (currentMonth !== 12 || day > currentDay) {
+      return; // No hacer nada si es un día futuro
+    }
+    
     setAnimatingDay(day);
     setTimeout(() => {
       const newOpened = { ...openedDays, [day]: true };
@@ -80,6 +90,12 @@ const CalendarioAdviento = () => {
             const day = i + 1;
             const isOpened = openedDays[day];
             const isAnimating = animatingDay === day;
+            
+            // Obtener la fecha actual para determinar disponibilidad
+            const today = new Date();
+            const currentDay = today.getDate();
+            const currentMonth = today.getMonth() + 1;
+            const isAvailable = currentMonth === 12 && day <= currentDay;
 
             return (
               <div
@@ -90,8 +106,9 @@ const CalendarioAdviento = () => {
                 <div
                   onClick={() => handleDayClick(day)}
                   className={`
-                    w-full h-full relative cursor-pointer
-                    ${isOpened ? '' : 'hover:scale-105'}
+                    w-full h-full relative 
+                    ${isAvailable && !isOpened ? 'cursor-pointer hover:scale-105' : 'cursor-not-allowed'}
+                    ${isOpened ? '' : isAvailable ? 'hover:scale-105' : ''}
                     transition-transform duration-200
                   `}
                 >
@@ -110,21 +127,29 @@ const CalendarioAdviento = () => {
                   {/* Papel que se rasga */}
                   <div className={`
                     absolute inset-0 rounded-lg overflow-hidden
-                    bg-gradient-to-br from-red-600 to-green-700
-                    border-4 border-yellow-400
+                    ${isAvailable 
+                      ? 'bg-gradient-to-br from-red-600 to-green-700 border-yellow-400' 
+                      : 'bg-gradient-to-br from-red-600 to-green-700 border-yellow-400'}
+                    border-4
                     shadow-lg
                     flex flex-col items-center justify-center
                     transition-all duration-600
                     ${isAnimating ? 'animate-tear' : ''}
                     ${isOpened ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}
+                    ${!isAvailable ? 'opacity-60' : ''}
                   `}>
-                    <Gift className="text-white w-6 h-6 md:w-8 md:h-8 mb-1" />
-                    <span className="text-2xl md:text-4xl font-bold text-white">
+                    <Gift className={`w-6 h-6 md:w-8 md:h-8 mb-1 ${isAvailable ? 'text-white' : 'text-gray-300'}`} />
+                    <span className={`text-2xl md:text-4xl font-bold ${isAvailable ? 'text-white' : 'text-gray-300'}`}>
                       {day}
                     </span>
-                    {day === 24 && (
+                    {day === 24 && isAvailable && (
                       <span className="text-xs text-yellow-300 font-bold mt-1">
                         ¡ESPECIAL!
+                      </span>
+                    )}
+                    {!isAvailable && (
+                      <span className="text-xs text-gray-400 font-bold mt-1">
+                        🔒
                       </span>
                     )}
                   </div>
