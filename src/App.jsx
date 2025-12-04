@@ -14,30 +14,30 @@ const CalendarioAdviento = () => {
 
   const regalos = {
     1: "🎁 ¡Te ganaste algo del Oxxo!",
-    2: "💪 Frase motivacional: Cada día es una nueva oportunidad para brillar",
+    2: "💖 Frase de hoy: Eres la mujer más inteligente y hermosa que conozco",
     3: "🥤 ¡Te ganaste un yogurt!",
     4: "🛍️ ¡Vale por algo del tianguis!",
-    5: "✨ Frase motivacional: Eres más fuerte de lo que crees",
+    5: "✨ Frase de hoy: Tu éxito profesional me enamora tanto como tu sonrisa",
     6: "🍫 ¡Te ganaste un chocolate!",
     7: "🎪 ¡Vale por unos tacos!",
-    8: "💖 Frase motivacional: Hoy será un gran día",
-    9: "🧃 ¡Te ganaste una bebida fría!",
+    8: "💖 Frase de hoy: Cada día me siento más orgulloso de la mujer extraordinaria que eres",
+    9: "🧃 ¡Te ganaste una bebida fría de Starbucks!",
     10: "🎨 ¡Vale por algo creativo del tianguis!",
-    11: "🌟 Frase motivacional: Tu esfuerzo vale la pena",
+    11: "🌟 Frase de hoy: Admiro tu fuerza, tu inteligencia y tu corazón dorado",
     12: "🍪 ¡Te ganaste unas galletas!",
     13: "🎁 ¡Sorpresa del Oxxo a tu elección!",
-    14: "💝 Frase motivacional: Eres increíble tal como eres",
+    14: "💝 Frase de hoy: Eres mi inspiración diaria, mi compañera perfecta",
     15: "🥗 ¡Te ganaste algo saludable!",
     16: "🧸 ¡Vale por un antojo del tianguis!",
-    17: "🌈 Frase motivacional: Todo mejora, ten paciencia",
-    18: "☕ ¡Te ganaste un café o té!",
-    19: "🎪 ¡Vale por unas quesadillas!",
-    20: "⭐ Frase motivacional: Brillas con luz propia",
-    21: "🍕 ¡Te ganaste una rebanada de pizza!",
+    17: "🌈 Frase de hoy: Tu pasión por tu trabajo es una de las cosas que más amo de ti",
+    18: "☕ ¡Te ganaste un café o té de Starbucks!",
+    19: "🎪 ¡Vale por unas quesadillas de los parientes!",
+    20: "⭐ Frase de hoy: Eres brillante en todo lo que haces, mi amor",
+    21: "🍕 ¡Te ganaste una pizza dominos!",
     22: "🎁 ¡Doble premio del Oxxo!",
-    23: "💎 Frase motivacional: Eres valioso y único",
+    23: "💎 Frase de hoy: Eres mi tesoro más preciado, mi mujer excepcional",
     24: "🎄 ¡GRAN PREMIO! Vale por lo que tú quieras",
-    25: "🎅 ¡FELIZ NAVIDAD! Día especial con sorpresa doble"
+    25: "🎅 ¡FELIZ NAVIDAD! Día especial con sorpresa"
   };
 
   const handleDayClick = (day) => {
