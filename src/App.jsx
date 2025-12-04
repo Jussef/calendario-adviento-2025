@@ -66,7 +66,7 @@ const CalendarioAdviento = () => {
             Calendario de Adviento
             <Sparkles className="text-yellow-300" />
           </h1>
-          <p className="text-white text-lg">¡Abre una casilla cada día para descubrir tu sorpresa!</p>
+          <p className="text-white text-lg">¡Abre una casilla cada día para descubrir tu sorpresa Vonchis!</p>
           <button 
             onClick={resetCalendar}
             className="mt-4 px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg text-sm transition"
